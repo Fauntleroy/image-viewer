@@ -1,0 +1,34 @@
+html {
+    background: rgb(45, 45, 45);
+    color: rgb(235, 235, 235);
+}
+
+body {
+    text-align: center;
+}
+
+.image-viewer {
+    display: inline-block;
+    font-family: 'Roboto', sans-serif;
+    background: rgb(245, 245, 245);
+    color: rgb(45, 45, 45);
+}
+
+.image-viewer__image {
+    background: rgb(100, 100, 100);
+}
+
+.image-viewer__name {
+    font-family: 'Roboto Slab', serif;
+}
+
+.image-viewer__nav-button {
+    display: block;
+    float: left;
+    width: 50%;
+    line-height: 3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.75em;
+}
