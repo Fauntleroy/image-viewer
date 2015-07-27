@@ -17,6 +17,7 @@ a:hover {
 
 .image-viewer {
     display: inline-block;
+    margin: 3em auto;
     background: rgb(245, 245, 245);
     color: rgb(45, 45, 45);
     box-shadow: rgba(0, 0, 0, 0.45) 0 10px 25px;
@@ -43,6 +44,7 @@ a:hover {
 
 .image-viewer__image {
     display: block;
+    max-height: 800px;
     background: rgb(100, 100, 100);
     transition: opacity 250ms, -webkit-filter 275ms;
 }
