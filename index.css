@@ -1,6 +1,5 @@
 html {
     background: rgb(45, 45, 45);
-    color: rgb(235, 235, 235);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -23,12 +22,35 @@ a:hover {
     box-shadow: rgba(0, 0, 0, 0.45) 0 10px 25px;
 }
 
-.image-viewer__image {
-    background: rgb(100, 100, 100);
+.image-viewer__image-info {
+    position: relative;
 }
 
-.image-viewer__name {
-    
+.image-viewer__loading {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    padding: 0.15em 0.5em;
+    color: rgb(235, 235, 235);
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.image-viewer--loading .image-viewer__loading {
+    display: block;
+}
+
+.image-viewer__image {
+    display: block;
+    background: rgb(100, 100, 100);
+    transition: opacity 250ms, -webkit-filter 275ms;
+}
+
+.image-viewer--loading .image-viewer__image {
+    opacity: 0.85;
+    -webkit-filter: saturate(75%);
+    transition: opacity 150ms, -webkit-filter 150ms;
 }
 
 .image-viewer__nav-button {

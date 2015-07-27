@@ -34,6 +34,9 @@ var ImageViewer = function (element, images) {
         event.preventDefault();
         image_viewer.nextImage();
     });
+    this.image_el.addEventListener('load', function () {
+        image_viewer.imageLoadingComplete();
+    });
 };
 
 ImageViewer.prototype = {
@@ -54,6 +57,13 @@ ImageViewer.prototype = {
         this.image_el.src = image.image_url;
         this.name_el.textContent = image.name;
         this.current_image_index = image_index;
+        this.imageLoading();
+    },
+    imageLoading: function () {
+        this.el.classList.add('image-viewer--loading');
+    },
+    imageLoadingComplete: function () {
+        this.el.classList.remove('image-viewer--loading');
     }
 };
 
