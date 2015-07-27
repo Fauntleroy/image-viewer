@@ -1,3 +1,4 @@
+// Simple helper method for making XMLHttpRequests
 var fetchJSON = function (url, callback) {
     var request = new XMLHttpRequest();
     request.onload = function (progressEvent) {
@@ -14,6 +15,8 @@ var fetchJSON = function (url, callback) {
     request.send();
 };
 
+// ImageViewer
+// Accepts a target element (with existing markup) and an array of image objects
 var ImageViewer = function (element, images) {
     var image_viewer = this;
     this.el = element;
@@ -67,6 +70,7 @@ ImageViewer.prototype = {
     }
 };
 
+// Construct the URL from which photos will be pulled
 var photosURL = 'https://api.500px.com/v1/photos'
     +'?feature=user'
     +'&username=fauntle'
@@ -74,6 +78,7 @@ var photosURL = 'https://api.500px.com/v1/photos'
     +'&image_size=4'
     +'&consumer_key=caIubSYfdDLoEpy0Q0uxuIpeAoBXdseD6NmfHFYL';
 
+// Get the photos, initialize the ImageViewer
 document.addEventListener('DOMContentLoaded', function () {
     var image_viewer_el = document.querySelector('#image-viewer');
 
