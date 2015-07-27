@@ -14,27 +14,46 @@ var fetchJSON = function (url, callback) {
     request.send();
 };
 
-var ImageViewer = function (element, photos) {
+var ImageViewer = function (element, images) {
+    var image_viewer = this;
     this.el = element;
     this.previous_el = element.querySelector('.image-viewer__previous');
     this.next_el = element.querySelector('.image-viewer__next');
     this.image_el = element.querySelector('.image-viewer__image');
     this.name_el = element.querySelector('.image-viewer__name');
 
-    var initial_photo = photos[0];
-    this.displayImage(initial_photo.image_url, initial_photo.name);
+    this.images = images;
+    this.current_image_index = 0;
+    this.displayImage(this.current_image_index);
+
+    this.previous_el.addEventListener('click', function (event) {
+        event.preventDefault();
+        image_viewer.previousImage();
+    });
+    this.next_el.addEventListener('click', function (event) {
+        event.preventDefault();
+        image_viewer.nextImage();
+    });
 };
 
 ImageViewer.prototype = {
     previousImage: function () {
-
+        var previous_image_index = this.current_image_index > 0 ?
+            this.current_image_index - 1 :
+            this.images.length - 1;
+        this.displayImage(previous_image_index);
     },
     nextImage: function () {
-
+        var next_image_index = this.current_image_index < this.images.length - 1 ?
+            this.current_image_index + 1 :
+            0;
+        this.displayImage(next_image_index);
     },
-    displayImage: function (url, name) {
-        this.image_el.src = url;
-        this.name_el.textContent = name;
+    displayImage: function (image_index) {
+        var image = this.images[image_index];
+        this.image_el.src = image.image_url;
+        this.name_el.textContent = image.name;
+        this.current_image_index = image_index;
     }
 };
 
