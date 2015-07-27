@@ -1,17 +1,26 @@
 html {
     background: rgb(45, 45, 45);
     color: rgb(235, 235, 235);
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
     text-align: center;
 }
 
+a {
+    color: rgb(33, 129, 255);
+}
+
+a:hover {
+    color: rgb(7, 95, 210);;
+}
+
 .image-viewer {
     display: inline-block;
-    font-family: 'Roboto', sans-serif;
     background: rgb(245, 245, 245);
     color: rgb(45, 45, 45);
+    box-shadow: rgba(0, 0, 0, 0.45) 0 10px 25px;
 }
 
 .image-viewer__image {
@@ -19,11 +28,12 @@ body {
 }
 
 .image-viewer__name {
-    font-family: 'Roboto Slab', serif;
+    
 }
 
 .image-viewer__nav-button {
     display: block;
+    box-sizing: border-box;
     float: left;
     width: 50%;
     line-height: 3em;
@@ -31,4 +41,17 @@ body {
     text-decoration: none;
     font-weight: bold;
     font-size: 0.75em;
+    border-top: rgb(225, 225, 225) 1px solid;
+}
+
+.image-viewer__nav-button:hover {
+    background: rgb(235, 235, 235);
+}
+
+.image-viewer__nav-button:active {
+    box-shadow: inset rgba(0, 0, 0, 0.05) 0 3px 1.5em;
+}
+
+.image-viewer__previous {
+    border-right: rgb(215, 215, 215) 1px solid;
 }
